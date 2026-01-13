@@ -13,7 +13,7 @@
 
     <div class="form-container">
         <h1>Registration form</h1>
-        <form action="post" id="regform">
+        <form action="/" method="post" id="regform">
             
             <input type="text" id="first-name" placeholder="Enter your First Name" required>
             <input type="text" id="last-name" placeholder="Enter your Last Name" required>
@@ -37,9 +37,14 @@
             <input type="text" id="nationality" placeholder="Nationality" required>
             <input type="text" id="address" placeholder="Address" required>
             <input type="password" id="password" placeholder="Password" required>
-            <input type="confirm-pass" id="confirm-pass" placeholder="Confirm Password">
-            <label for="terms">Accept terms and conditions</label>
-            <input type="checkbox" id="terms">
+            <input type="password" id="confirm-pass" placeholder="Confirm Password">
+            
+            <div class="terms-wrapper">
+                <input type="checkbox" id="terms">
+                <label for="terms">Accept terms and condition</label>
+            </div>
+            
+           
             <button type="submit" id="submitBtn">Register</button>
         </form>
     </div>

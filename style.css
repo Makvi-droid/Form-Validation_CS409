@@ -40,3 +40,18 @@ select{
     box-sizing: border-box; 
     padding: 8px; 
 }
+
+
+
+.terms-wrapper {
+    grid-column: span 2; 
+    display: flex;       
+    align-items: center; 
+    gap: 10px;           
+    padding: 8px;        
+}
+
+
+.terms-wrapper input {
+    width: auto;        
+}
