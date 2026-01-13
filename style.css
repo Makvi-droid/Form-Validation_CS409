@@ -9,3 +9,21 @@
     justify-content: center;
     align-items: center;
 }
+
+#regform{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#email {
+    grid-column: span 2; 
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box; 
+    padding: 8px; 
+}
