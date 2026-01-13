@@ -1,62 +1,70 @@
-:root{
-    --fonts: 'Roboto', 'Open Sans', 'Montserrat', 'Raleway', 'Ubuntu'
+:root {
+  --fonts: "Roboto", "Open Sans", "Montserrat", "Raleway", "Ubuntu";
 }
 
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#regform{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
+#regform {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
 }
 
-#email, #address, #submitBtn {
-    grid-column: span 2; 
+#email,
+#address,
+#submitBtn {
+  grid-column: span 2;
 }
 
-#submitBtn{
-    padding: 10px;
-    border-radius: 13px;
-    border: 2px solid black;
-    cursor: pointer;
+#submitBtn {
+  padding: 10px;
+  border-radius: 13px;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
 input {
-    width: 100%;
-    box-sizing: border-box; 
-    padding: 8px; 
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
 }
 
-select{
-    width: 100%;
-    box-sizing: border-box; 
-    padding: 8px; 
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
 }
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
 
+.error-msg {
+  color: #ff0000;
+}
 
 .terms-wrapper {
-    grid-column: span 2; 
-    display: flex;       
-    align-items: center; 
-    gap: 10px;           
-    padding: 8px;      
-    font-family: 'Ubuntu', var(--fonts);  
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  font-family: "Ubuntu", var(--fonts);
 }
 
-
 .terms-wrapper input {
-    width: auto;        
+  width: auto;
 }
