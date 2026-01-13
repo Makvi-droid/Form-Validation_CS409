@@ -54,6 +54,36 @@ select {
 
 .error-msg {
   color: #ff0000;
+  font-family: "Mulish", var(--fonts);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.input-container.error input {
+  border: 2px solid #ff4d4d;
+}
+
+.success-msg {
+  color: #00ff08;
+  font-family: "Mulish", var(--fonts);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.input-container.success input {
+  border: 2px solid #00ff08;
+}
+
+.error-msg,
+.success-msg {
+  display: none;
+}
+.input-container.error .error-msg {
+  display: block;
+}
+
+.input-container.success .success-msg {
+  display: block;
 }
 
 .terms-wrapper {
