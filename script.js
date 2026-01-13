@@ -2,6 +2,8 @@ const regform = document.getElementById("regform");
 const first_name = document.getElementById("first-name");
 const last_name = document.getElementById("last-name");
 const username = document.getElementById("username");
+const email = document.getElementById("email");
+const phoneNumber = document.getElementById("phone");
 
 regform.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -14,6 +16,41 @@ regform.addEventListener("submit", (event) => {
     errorMsg = true;
   } else {
     showSuccess(first_name, "Firstname Approved");
+    successMsg = true;
+  }
+
+  if (last_name.value.trim() === "") {
+    showError(last_name, "Lastname is required");
+    errorMsg = true;
+  } else {
+    showSuccess(last_name, "Lastname Approved");
+    successMsg = true;
+  }
+
+  if (username.value.trim() === "") {
+    showError(username, "Username is required");
+    errorMsg = true;
+  } else {
+    showSuccess(username, "Username Approved");
+    successMsg = true;
+  }
+
+  if (email.value.trim() === "") {
+    showError(email, "Email is required");
+    errorMsg = true;
+  } else if (!email.value.includes("@")) {
+    showError(email, "Email is invalid format");
+    errorMsg = true;
+  } else {
+    showSuccess(email, "Email Approved");
+    successMsg = true;
+  }
+
+  if (phoneNumber.value.trim() === "") {
+    showError(phoneNumber, "Phone number is required");
+    errorMsg = true;
+  } else {
+    showSuccess(phoneNumber, "Phone number Approved");
     successMsg = true;
   }
 });

@@ -15,7 +15,7 @@
   <body>
     <div class="form-container">
       <h1>Registration form</h1>
-      <form action="/" method="post" id="regform">
+      <form action="/" method="post" id="regform" novalidate>
         <div class="input-container">
           <input
             type="text"
@@ -26,10 +26,34 @@
           <span class="success-msg"></span>
         </div>
 
-        <input type="text" id="last-name" placeholder="Enter your Last Name" />
-        <input type="text" id="username" placeholder="Enter username" />
-        <input type="text" id="phone" placeholder="Enter phone number" />
-        <input type="email" id="email" placeholder="Enter email" />
+        <div class="input-container">
+          <input
+            type="text"
+            id="last-name"
+            placeholder="Enter your Last Name"
+          />
+          <span class="error-msg"></span>
+          <span class="success-msg"></span>
+        </div>
+
+        <div class="input-container">
+          <input type="text" id="username" placeholder="Enter username" />
+          <span class="error-msg"></span>
+          <span class="success-msg"></span>
+        </div>
+
+        <div class="input-container">
+          <input type="text" id="phone" placeholder="Enter phone number" />
+          <span class="error-msg"></span>
+          <span class="success-msg"></span>
+        </div>
+
+        <div class="input-container">
+          <input type="email" id="email" placeholder="Enter email" />
+          <span class="error-msg"></span>
+          <span class="success-msg"></span>
+        </div>
+
         <select name="gender" id="gender">
           <option value="" disabled selected hidden>Gender</option>
           <option value="Male">Male</option>
