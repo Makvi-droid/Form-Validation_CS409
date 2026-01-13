@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
+    <div class="form-container">
+        <h1>Registration form</h1>
+        <form action="post" id="regform">
+            
+            <input type="text" id="first-name" placeholder="Enter your First Name" required>
+            <input type="text" id="last-name" placeholder="Enter your Last Name" required><br>
+            <input type="text" id="username" placeholder="Enter username" required>
+            <input type="text" id="phone" placeholder="Enter phone number" required><br>
+            <input type="email" id="email" placeholder="Enter email" required>
+            
+        </form>
+    </div>
 
     <script src="script.js" type="module"></script>
     <script src="https://kit.fontawesome.com/77d4dcdf26.js" crossorigin="anonymous"></script>
