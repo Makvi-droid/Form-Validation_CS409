@@ -18,11 +18,24 @@
     max-width: 400px;
 }
 
-#email {
+#email, #address, #submitBtn {
     grid-column: span 2; 
 }
 
+#submitBtn{
+    padding: 10px;
+    border-radius: 13px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
 input {
+    width: 100%;
+    box-sizing: border-box; 
+    padding: 8px; 
+}
+
+select{
     width: 100%;
     box-sizing: border-box; 
     padding: 8px; 

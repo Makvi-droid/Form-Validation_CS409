@@ -20,7 +20,27 @@
             <input type="text" id="username" placeholder="Enter username" required>
             <input type="text" id="phone" placeholder="Enter phone number" required>
             <input type="email" id="email" placeholder="Enter email" required>
-            
+            <select name="gender" id="gender">
+                <option value="" disabled selected hidden>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="lgbtq+">LGBTQ+</option>
+                <option value="pnts">Prefer not to say</option>
+            </select>
+            <input type="text" placeholder="Birthday" pattern="\d{4}-\d{2}-\d{2}" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'">
+            <select name="civil-status" id="civil-status">
+                <option value="" disabled selected hidden>Civil Status</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Widowed">Widowed</option>
+            </select>
+            <input type="text" id="nationality" placeholder="Nationality" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="confirm-pass" id="confirm-pass" placeholder="Confirm Password">
+            <label for="terms">Accept terms and conditions</label>
+            <input type="checkbox" id="terms">
+            <button type="submit" id="submitBtn">Register</button>
         </form>
     </div>
 
