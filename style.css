@@ -12,18 +12,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh; /* Added to center vertically on screen */
 }
 
 #regform {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 15px; /* Increased gap slightly for error messages */
   width: 100%;
   max-width: 400px;
 }
 
-#email,
-#address,
+/* Updated to use class instead of ID for layout */
+.span-2,
 #submitBtn {
   grid-column: span 2;
 }
@@ -33,18 +34,16 @@
   border-radius: 13px;
   border: 2px solid black;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px;
-}
-
+input,
 select {
   width: 100%;
   box-sizing: border-box;
   padding: 8px;
+  border: 1px solid #ccc; /* Default border */
+  border-radius: 4px;
 }
 
 .input-container {
@@ -56,45 +55,60 @@ select {
   color: #ff0000;
   font-family: "Mulish", var(--fonts);
   font-size: 12px;
-  margin-top: 8px;
-}
-
-.input-container.error input {
-  border: 2px solid #ff4d4d;
+  margin-top: 5px;
+  display: none;
 }
 
 .success-msg {
   color: #00ff08;
   font-family: "Mulish", var(--fonts);
   font-size: 12px;
-  margin-top: 8px;
-}
-
-.input-container.success input {
-  border: 2px solid #00ff08;
-}
-
-.error-msg,
-.success-msg {
+  margin-top: 5px;
   display: none;
 }
+
+/* ERROR STATES */
+/* Apply red border to both input and select */
+.input-container.error input,
+.input-container.error select {
+  border: 2px solid #ff4d4d;
+}
+
 .input-container.error .error-msg {
   display: block;
+}
+
+/* SUCCESS STATES */
+.input-container.success input,
+.input-container.success select {
+  border: 2px solid #00ff08;
 }
 
 .input-container.success .success-msg {
   display: block;
 }
 
+/* TERMS SPECIFIC */
 .terms-wrapper {
-  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  font-family: "Ubuntu", var(--fonts);
+}
+
+.check-group {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px;
-  font-family: "Ubuntu", var(--fonts);
 }
 
 .terms-wrapper input {
   width: auto;
+}
+
+/* Special handling for terms error */
+.terms-wrapper.error .error-msg {
+  display: block;
+}
+.terms-wrapper.error label {
+  color: #ff4d4d;
 }
