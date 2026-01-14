@@ -1,114 +1,338 @@
 :root {
-  --fonts: "Roboto", "Open Sans", "Montserrat", "Raleway", "Ubuntu";
+  --primary-color: #6c5ce7;
+  --primary-hover: #5649c0;
+  --bg-gradient: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+  --error-color: #ff4757;
+  --success-color: #2ed573;
+  --font-main: "Poppins", sans-serif;
 }
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Added to center vertically on screen */
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  color: #777;
+  font-size: 14px;
 }
 
 #regform {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px; /* Increased gap slightly for error messages */
-  width: 100%;
-  max-width: 400px;
+  gap: 20px 15px;
 }
 
-/* Updated to use class instead of ID for layout */
 .span-2,
 #submitBtn {
   grid-column: span 2;
 }
 
-#submitBtn {
-  padding: 10px;
-  border-radius: 13px;
-  border: 2px solid black;
-  cursor: pointer;
-  margin-top: 10px;
+/* --- INPUT & CONTAINER STYLING --- */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 input,
 select {
   width: 100%;
-  box-sizing: border-box;
-  padding: 8px;
-  border: 1px solid #ccc; /* Default border */
-  border-radius: 4px;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
+/* --- THE ICONS --- */
+.input-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #aaa;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* --- EFFECTS & INTERACTIONS --- */
+
+/* 1. Glow effect */
+input:focus,
+select:focus {
+  border-color: var(--primary-color);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+}
+
+/* 2. Hide Icon on Click (Focus) */
+.input-container input:focus + .input-icon,
+.input-container select:focus + .input-icon {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+/* --- VALIDATION STYLES --- */
+.error-msg,
+.success-msg {
+  font-size: 11px;
+  margin-top: 5px;
+  font-weight: 500;
+  display: none;
 }
 
 .error-msg {
-  color: #ff0000;
-  font-family: "Mulish", var(--fonts);
-  font-size: 12px;
-  margin-top: 5px;
-  display: none;
+  color: var(--error-color);
 }
-
 .success-msg {
-  color: #00ff08;
-  font-family: "Mulish", var(--fonts);
-  font-size: 12px;
-  margin-top: 5px;
-  display: none;
+  color: var(--success-color);
 }
 
-/* ERROR STATES */
-/* Apply red border to both input and select */
+/* Error State */
 .input-container.error input,
 .input-container.error select {
-  border: 2px solid #ff4d4d;
+  border-color: var(--error-color);
+  background-color: #fff0f0;
 }
-
+.input-container.error .input-icon {
+  color: var(--error-color);
+}
 .input-container.error .error-msg {
   display: block;
 }
 
-/* SUCCESS STATES */
+/* Success State */
 .input-container.success input,
 .input-container.success select {
-  border: 2px solid #00ff08;
+  border-color: var(--success-color);
+}
+.input-container.success .input-icon {
+  color: var(--success-color);
 }
 
-.input-container.success .success-msg {
-  display: block;
-}
-
-/* TERMS SPECIFIC */
-.terms-wrapper {
-  display: flex;
-  flex-direction: column;
-  font-family: "Ubuntu", var(--fonts);
-}
-
-.check-group {
-  display: flex;
+/* --- TERMS SPECIAL STYLING --- */
+.terms-container {
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.terms-container input {
+  width: auto;
+  margin-right: 10px;
+  box-shadow: none;
+}
+
+.terms-container label {
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.terms-container label a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.terms-container .error-msg {
+  width: 100%;
+  margin-left: 0;
+}
+
+.terms-container.error label {
+  color: var(--error-color);
+}
+
+/* --- SUBMIT BUTTON --- */
+#submitBtn {
+  padding: 14px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  margin-top: 10px;
+}
+
+#submitBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+#submitBtn:active {
+  transform: scale(0.98);
+}
+
+/* --- MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: none;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-box.active {
+  display: block;
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-header h3 {
+  color: #333;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Summary List for Confirmation */
+.summary-list {
+  list-style: none;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.summary-list li {
+  margin-bottom: 8px;
+  font-size: 13px;
+  border-bottom: 1px solid #eef;
+  padding-bottom: 5px;
+}
+
+.summary-list li strong {
+  color: var(--primary-color);
+  width: 100px;
+  display: inline-block;
+}
+
+/* Footer Buttons */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
   gap: 10px;
 }
 
-.terms-wrapper input {
-  width: auto;
+.modal-footer.center-content,
+.modal-body.center-content {
+  text-align: center;
+  justify-content: center;
 }
 
-/* Special handling for terms error */
-.terms-wrapper.error .error-msg {
-  display: block;
+.success-icon-large {
+  font-size: 50px;
+  color: var(--success-color);
+  margin-bottom: 10px;
 }
-.terms-wrapper.error label {
-  color: #ff4d4d;
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-secondary {
+  background: #eee;
+  color: #555;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+.btn-secondary:hover {
+  background: #ddd;
 }
